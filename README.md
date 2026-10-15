@@ -24,7 +24,7 @@ COCO val2017 全量 5000 张，80 类；评测协议与官方训练日志一致
 | RTMDet-m | FP32 | 0.491 | 0.667 | / | / |
 | RTMDet-m | [W16A16](./config/config.json) | 0.4941 | 0.6676 | +0.0031 | 40.337 |
 
-性能：AX650N NPU3 模式；单帧耗时可用`ax_run_model -w 10 -r 100 -m <model>.axmodel` 实测。
+性能：AX650N NPU3 由`ax_run_model -w 10 -r 100 -m <model>.axmodel` 实测。
 
 ## 2. 校准集准备
 
