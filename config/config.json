@@ -1,0 +1,48 @@
+{
+  "input": "onnx/rtmdet_tiny.onnx",
+  "output_dir": "output_rtmdet_tiny",
+  "model_type": "ONNX",
+  "target_hardware": "AX650",
+  "npu_mode": "NPU3",
+  "quant": {
+    "input_configs": [
+      {
+        "tensor_name": "DEFAULT",
+        "calibration_dataset": "./dataset/rtmdet_calib_640x640-img32.tar",
+        "calibration_size": 32,
+        "calibration_mean": [103.53, 116.28, 123.675],
+        "calibration_std": [57.375, 57.12, 58.395],
+        "calibration_format": "Image"
+      }
+    ],
+    "layer_configs": [
+      {
+        "start_tensor_names": ["DEFAULT"],
+        "end_tensor_names": ["DEFAULT"],
+        "data_type": "U16",
+        "weight_data_type": "S16"
+      }
+    ],
+    "enable_smooth_quant": true,
+    "conv_bias_data_type": "FP32",
+    "precision_analysis": true,
+    "precision_analysis_method": "EndToEnd",
+    "precision_analysis_mode": "NPUBackend"
+  },
+  "input_processors": [
+    {
+      "tensor_name": "DEFAULT",
+      "tensor_format": "BGR",
+      "tensor_layout": "NCHW",
+      "src_format": "BGR",
+      "src_layout": "NHWC",
+      "src_dtype": "U8",
+      "mean": [103.53, 116.28, 123.675],
+      "std": [57.375, 57.12, 58.395]
+    }
+  ],
+  "output_processors": [],
+  "compiler": {
+    "check": 0
+  }
+}

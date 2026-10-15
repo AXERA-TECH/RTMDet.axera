@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# pulsar2 build 产物
+output_*/
+
+# 评估/可视化输出（脚本生成）
+onnx_vis/
+axera_vis/
+results/
+
+# 大体积产物（校准集 tar / bin、临时归档）
+*.tar
+*.bin
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
